@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+<link rel="shortcut icon"  href="image/icon.ico" type="image/x-icon">
+<link rel="Bookmark" href="image/icon.ico">
+<link rel="icon" type="image/x-icon" href="image/icon.ico">
+<title>专色查询-Pantone色查询-潘通色查询</title>
+<meta name="description" content="免费在线查询专色、潘通色、Pantone色，只要输入色号即可获得相关查询结果，结果包含专色的全名、CMYK值和RGB值。"/>
+<link rel="stylesheet" type="text/css" href="css/app.min.css">
+<link rel="stylesheet" type="text/css" href="http://www.qiuziti.com/tools/css/default.css">
+<script language="JavaScript" type="text/javascript" src="http://www.qiuziti.com/tools/js/funcs.js"></script>
+<style type="text/css">
+	.rgbBox, .hexBox, .button {
+		border: 1px solid #eeeeee;
+	}
+</style>
+</head>
+<body>
+<div class="app" id="app-font">
+    <div id="header"></div>
+    <div id="content" style="margin: 0 auto; overflow: hidden;">
+	    <div id="colorContent">
+		    <div class="lf">
+		        <div id="ColorInput">
+		            <div class="sideHead">Current Color</div>
+		            <div class="currentBorder">
+		                <div id="currentColor" style="background-color: rgb(0, 255, 255);">&nbsp;</div>
+		            </div>
+		            <form name="codes" id="codes">
+		                <div class="currentBorder">
+		                    <div class="navBox">
+		                        <table align="center" cellspacing="0" cellpadding="0" border="0">
+		                            <tbody>
+		                                <tr>
+		                                    <td>R:</td>
+		                                    <td>
+		                                        <input type="text" name="r" value="0" maxlength="3" class="rgbBox">
+		                                    </td>
+		                                </tr>
+		                                <tr>
+		                                    <td>G:</td>
+		                                    <td>
+		                                        <input type="text" name="g" value="0" maxlength="3" class="rgbBox">
+		                                    </td>
+		                                </tr>
+		                                <tr>
+		                                    <td>B:</td>
+		                                    <td>
+		                                        <input type="text" name="b" value="0" maxlength="3" class="rgbBox">
+		                                    </td>
+		                                </tr>
+		                                <tr>
+		                                    <td colspan="2">
+		                                        <input type="button" class="button" value="Set RGB" onclick="ChangeColors(document.getElementById(&#39;codes&#39;).r.value,document.getElementById(&#39;codes&#39;).g.value,document.getElementById(&#39;codes&#39;).b.value);">
+		                                    </td>
+		                                </tr>
+		                                <tr>
+		                                    <td colspan="2">#
+		                                        <input type="text" class="hexBox" name="hex" value="000000" maxlength="6">
+		                                    </td>
+		                                </tr>
+		                                <tr>
+		                                    <td colspan="2">
+		                                        <input type="button" class="button" value="Set HEX" onclick="SetHex(document.getElementById(&#39;codes&#39;).hex.value);">
+		                                    </td>
+		                                </tr>
+		                            </tbody>
+		                        </table>
+		                        <input type="button" class="button" value="Lighten Scheme" onclick="LightenScheme();" style="margin-bottom: 0px;">
+		                        <input type="button" class="button" value="Darken Scheme" onclick="DarkenScheme();">
+		                    </div>
+		                </div>
+		            </form>
+		        </div>
+		    </div>
+		    <div class="rt">
+		        <div id="Wheel">
+		            <div id="swatch0" class="swatch">
+		                <div class="border">
+		                    <div id="0" class="color" onclick="SetHex(this.style.backgroundColor);" style="background-color: rgb(0, 255, 255);">&nbsp;</div>
+		                </div>
+		                <div id="0RGB" class="rgb">0.255.255</div>
+		                <div id="0HEX" class="hex">#00FFFF</div>
+		            </div>
+		            <div id="swatch1" class="swatch">
+		                <div class="border">
+		                    <div id="1" class="color" onclick="SetHex(this.style.backgroundColor);" style="background-color: rgb(0, 128, 255);">&nbsp;</div>
+		                </div>
+		                <div id="1RGB" class="rgb">0.128.255</div>
+		                <div id="1HEX" class="hex">#0080FF</div>
+		            </div>
+		            <div id="swatch2" class="swatch">
+		                <div class="border">
+		                    <div id="2" class="color" onclick="SetHex(this.style.backgroundColor);" style="background-color: rgb(0, 0, 255);">&nbsp;</div>
+		                </div>
+		                <div id="2RGB" class="rgb">0.0.255</div>
+		                <div id="2HEX" class="hex">#0000FF</div>
+		            </div>
+		            <div id="swatch3" class="swatch">
+		                <div class="border">
+		                    <div id="3" class="color" onclick="SetHex(this.style.backgroundColor);" style="background-color: rgb(128, 0, 255);">&nbsp;</div>
+		                </div>
+		                <div id="3RGB" class="rgb">128.0.255</div>
+		                <div id="3HEX" class="hex">#8000FF</div>
+		            </div>
+		            <div id="swatch4" class="swatch">
+		                <div class="border">
+		                    <div id="4" class="color" onclick="SetHex(this.style.backgroundColor);" style="background-color: rgb(255, 0, 255);">&nbsp;</div>
+		                </div>
+		                <div id="4RGB" class="rgb">255.0.255</div>
+		                <div id="4HEX" class="hex">#FF00FF</div>
+		            </div>
+		            <div id="swatch5" class="swatch">
+		                <div class="border">
+		                    <div id="5" class="color" onclick="SetHex(this.style.backgroundColor);" style="background-color: rgb(255, 0, 128);">&nbsp;</div>
+		                </div>
+		                <div id="5RGB" class="rgb">255.0.128</div>
+		                <div id="5HEX" class="hex">#FF0080</div>
+		            </div>
+		            <div id="swatch6" class="swatch">
+		                <div class="border">
+		                    <div id="6" class="color" onclick="SetHex(this.style.backgroundColor);" style="background-color: rgb(255, 0, 0);">&nbsp;</div>
+		                </div>
+		                <div id="6RGB" class="rgb">255.0.0</div>
+		                <div id="6HEX" class="hex">#FF0000</div>
+		            </div>
+		            <div id="swatch7" class="swatch">
+		                <div class="border">
+		                    <div id="7" class="color" onclick="SetHex(this.style.backgroundColor);" style="background-color: rgb(255, 128, 0);">&nbsp;</div>
+		                </div>
+		                <div id="7RGB" class="rgb">255.128.0</div>
+		                <div id="7HEX" class="hex">#FF8000</div>
+		            </div>
+		            <div id="swatch8" class="swatch">
+		                <div class="border">
+		                    <div id="8" class="color" onclick="SetHex(this.style.backgroundColor);" style="background-color: rgb(255, 255, 0);">&nbsp;</div>
+		                </div>
+		                <div id="8RGB" class="rgb">255.255.0</div>
+		                <div id="8HEX" class="hex">#FFFF00</div>
+		            </div>
+		            <div id="swatch9" class="swatch">
+		                <div class="border">
+		                    <div id="9" class="color" onclick="SetHex(this.style.backgroundColor);" style="background-color: rgb(128, 255, 0);">&nbsp;</div>
+		                </div>
+		                <div id="9RGB" class="rgb">128.255.0</div>
+		                <div id="9HEX" class="hex">#80FF00</div>
+		            </div>
+		            <div id="swatch10" class="swatch">
+		                <div class="border">
+		                    <div id="10" class="color" onclick="SetHex(this.style.backgroundColor);" style="background-color: rgb(0, 255, 0);">&nbsp;</div>
+		                </div>
+		                <div id="10RGB" class="rgb">0.255.0</div>
+		                <div id="10HEX" class="hex">#00FF00</div>
+		            </div>
+		            <div id="swatch11" class="swatch">
+		                <div class="border">
+		                    <div id="11" class="color" onclick="SetHex(this.style.backgroundColor);" style="background-color: rgb(0, 255, 128);">&nbsp;</div>
+		                </div>
+		                <div id="11RGB" class="rgb">0.255.128</div>
+		                <div id="11HEX" class="hex">#00FF80</div>
+		            </div>
+		            <div id="swatchm1" class="swatch">
+		                <div class="border">
+		                    <div id="m1" class="color" onclick="SetHex(this.style.backgroundColor);" style="background-color: rgb(61, 255, 255);">&nbsp;</div>
+		                </div>
+		                <div id="m1RGB" class="rgb">61.255.255</div>
+		                <div id="m1HEX" class="hex">#3DFFFF</div>
+		            </div>
+		            <div id="swatchm2" class="swatch">
+		                <div class="border">
+		                    <div id="m2" class="color" onclick="SetHex(this.style.backgroundColor);" style="background-color: rgb(122, 255, 255);">&nbsp;</div>
+		                </div>
+		                <div id="m2RGB" class="rgb">122.255.255</div>
+		                <div id="m2HEX" class="hex">#7AFFFF</div>
+		            </div>
+		            <div id="swatchm3" class="swatch">
+		                <div class="border">
+		                    <div id="m3" class="color" onclick="SetHex(this.style.backgroundColor);" style="background-color: rgb(255, 61, 61);">&nbsp;</div>
+		                </div>
+		                <div id="m3RGB" class="rgb">255.61.61</div>
+		                <div id="m3HEX" class="hex">#FF3D3D</div>
+		            </div>
+		            <div id="swatchm4" class="swatch">
+		                <div class="border">
+		                    <div id="m4" class="color" onclick="SetHex(this.style.backgroundColor);" style="background-color: rgb(255, 122, 122);">&nbsp;</div>
+		                </div>
+		                <div id="m4RGB" class="rgb">255.122.122</div>
+		                <div id="m4HEX" class="hex">#FF7A7A</div>
+		            </div>
+		        </div>
+		        <script language="JavaScript">
+		        DrawPalette();
+		        </script>
+		        <div id="palette">
+		            <table cellpadding="0" cellspacing="1" border="0" bgcolor="#000000">
+		                <tbody>
+		                    <tr>
+		                        <td height="11" width="11" bgcolor="#000000"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,0,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#000033"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,0,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#000066"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,0,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#000099"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,0,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#0000CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,0,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#0000FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,0,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#003300"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,51,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#003333"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,51,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#003366"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,51,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#003399"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,51,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#0033CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,51,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#0033FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,51,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#006600"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,102,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#006633"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,102,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#006666"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,102,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#006699"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,102,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#0066CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,102,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#0066FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,102,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#009900"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,153,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#009933"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,153,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#009966"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,153,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#009999"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,153,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#0099CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,153,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#0099FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,153,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#00CC00"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,204,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#00CC33"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,204,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#00CC66"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,204,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#00CC99"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,204,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#00CCCC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,204,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#00CCFF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,204,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#00FF00"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,255,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#00FF33"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,255,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#00FF66"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,255,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#00FF99"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,255,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#00FFCC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,255,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#00FFFF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(0,255,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                    </tr>
+		                    <tr>
+		                        <td height="11" width="11" bgcolor="#330000"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,0,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#330033"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,0,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#330066"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,0,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#330099"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,0,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#3300CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,0,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#3300FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,0,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#333300"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,51,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#333333"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,51,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#333366"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,51,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#333399"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,51,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#3333CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,51,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#3333FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,51,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#336600"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,102,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#336633"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,102,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#336666"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,102,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#336699"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,102,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#3366CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,102,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#3366FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,102,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#339900"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,153,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#339933"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,153,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#339966"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,153,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#339999"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,153,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#3399CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,153,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#3399FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,153,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#33CC00"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,204,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#33CC33"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,204,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#33CC66"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,204,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#33CC99"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,204,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#33CCCC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,204,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#33CCFF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,204,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#33FF00"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,255,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#33FF33"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,255,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#33FF66"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,255,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#33FF99"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,255,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#33FFCC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,255,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#33FFFF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(51,255,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                    </tr>
+		                    <tr>
+		                        <td height="11" width="11" bgcolor="#660000"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,0,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#660033"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,0,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#660066"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,0,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#660099"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,0,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#6600CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,0,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#6600FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,0,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#663300"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,51,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#663333"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,51,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#663366"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,51,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#663399"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,51,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#6633CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,51,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#6633FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,51,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#666600"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,102,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#666633"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,102,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#666666"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,102,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#666699"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,102,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#6666CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,102,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#6666FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,102,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#669900"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,153,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#669933"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,153,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#669966"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,153,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#669999"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,153,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#6699CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,153,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#6699FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,153,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#66CC00"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,204,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#66CC33"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,204,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#66CC66"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,204,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#66CC99"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,204,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#66CCCC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,204,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#66CCFF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,204,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#66FF00"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,255,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#66FF33"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,255,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#66FF66"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,255,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#66FF99"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,255,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#66FFCC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,255,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#66FFFF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(102,255,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                    </tr>
+		                    <tr>
+		                        <td height="11" width="11" bgcolor="#990000"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,0,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#990033"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,0,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#990066"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,0,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#990099"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,0,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#9900CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,0,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#9900FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,0,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#993300"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,51,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#993333"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,51,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#993366"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,51,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#993399"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,51,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#9933CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,51,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#9933FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,51,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#996600"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,102,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#996633"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,102,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#996666"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,102,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#996699"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,102,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#9966CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,102,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#9966FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,102,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#999900"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,153,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#999933"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,153,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#999966"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,153,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#999999"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,153,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#9999CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,153,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#9999FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,153,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#99CC00"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,204,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#99CC33"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,204,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#99CC66"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,204,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#99CC99"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,204,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#99CCCC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,204,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#99CCFF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,204,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#99FF00"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,255,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#99FF33"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,255,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#99FF66"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,255,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#99FF99"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,255,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#99FFCC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,255,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#99FFFF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(153,255,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                    </tr>
+		                    <tr>
+		                        <td height="11" width="11" bgcolor="#CC0000"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,0,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC0033"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,0,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC0066"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,0,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC0099"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,0,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC00CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,0,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC00FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,0,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC3300"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,51,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC3333"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,51,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC3366"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,51,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC3399"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,51,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC33CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,51,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC33FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,51,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC6600"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,102,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC6633"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,102,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC6666"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,102,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC6699"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,102,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC66CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,102,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC66FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,102,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC9900"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,153,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC9933"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,153,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC9966"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,153,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC9999"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,153,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC99CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,153,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CC99FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,153,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CCCC00"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,204,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CCCC33"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,204,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CCCC66"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,204,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CCCC99"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,204,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CCCCCC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,204,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CCCCFF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,204,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CCFF00"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,255,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CCFF33"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,255,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CCFF66"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,255,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CCFF99"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,255,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CCFFCC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,255,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#CCFFFF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(204,255,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                    </tr>
+		                    <tr>
+		                        <td height="11" width="11" bgcolor="#FF0000"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,0,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF0033"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,0,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF0066"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,0,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF0099"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,0,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF00CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,0,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF00FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,0,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF3300"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,51,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF3333"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,51,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF3366"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,51,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF3399"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,51,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF33CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,51,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF33FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,51,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF6600"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,102,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF6633"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,102,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF6666"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,102,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF6699"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,102,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF66CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,102,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF66FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,102,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF9900"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,153,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF9933"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,153,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF9966"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,153,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF9999"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,153,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF99CC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,153,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FF99FF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,153,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FFCC00"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,204,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FFCC33"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,204,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FFCC66"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,204,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FFCC99"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,204,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FFCCCC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,204,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FFCCFF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,204,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FFFF00"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,255,0); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FFFF33"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,255,51); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FFFF66"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,255,102); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FFFF99"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,255,153); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FFFFCC"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,255,204); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                        <td height="11" width="11" bgcolor="#FFFFFF"><a href="http://www.colorschemer.com/online.html#" onclick="ChangeColors(255,255,255); return false;"><img src="./ColorSchemer_files/clear.gif" border="0" width="11" height="11"></a></td>
+		                    </tr>
+		                </tbody>
+		            </table>
+		        </div>
+		    </div>
+		</div>
+		<div id="rightBox">
+		</div>
+		<script src="http://www.qiuziti.com/tools/js/urchin.js" type="text/javascript">
+		</script>
+		<script type="text/javascript">
+		_uacct = "UA-1328132-1";
+		urchinTracker();
+		</script>
+    </div>
+    <div id="footer"></div>
+</div>
+<script type="text/javascript" src="js/lib/tpl.js"></script>
+<script type="text/javascript" src="js/lib/app.min.js"></script>
+<script type="text/javascript" src="js/lib/tools.js"></script>
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101313065" charset="utf-8"></script>
+<script type="text/javascript">
+// 百度统计
+// var _hmt = _hmt || [];
+// (function () {
+//     var hm = document.createElement("script");
+//     hm.src = "//hm.baidu.com/hm.js?0b2e7e597c93ff3bbeffb23e425189d5";
+//     var s = document.getElementsByTagName("script")[0];
+//     s.parentNode.insertBefore(hm, s);
+// })();
+</script>
+<script type="text/javascript">
+     document.write('<a style="display:none!important" id="tanx-a-mm_98042776_7562526_25452011"></a>');
+     tanx_s = document.createElement("script");
+     tanx_s.type = "text/javascript";
+     tanx_s.charset = "gbk";
+     tanx_s.id = "tanx-s-mm_98042776_7562526_25452011";
+     tanx_s.async = true;
+     tanx_s.src = "http://p.tanx.com/ex?i=mm_98042776_7562526_25452011";
+     tanx_h = document.getElementsByTagName("head")[0];
+     if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+</script>
+</body>
+</html>

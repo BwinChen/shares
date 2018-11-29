@@ -1,0 +1,55 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+#  servlet:
+#    context-path: /shares
+
+spring:
+  application:
+    name: shares
+  thymeleaf:
+    cache: false
+  datasource:
+    url: jdbc:mysql://192.168.2.104:3306/shares?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
+    username: root
+    password: root
+  redis:
+    host: 192.168.2.104
+    port: 6379
+    password:
+    timeout: 5000ms
+    database: 0
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+  cache:
+    type: redis
+  http:
+    encoding:
+      enabled: true
+      force: true
+      charset: UTF-8
+#  devtools:
+#    restart:
+#      enabled: true
+#      additional-paths: src/main/java
+#      exclude: static/**
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.shares.entity
+  global-config:
+#    refresh: true
+    db-config:
+      column-like: true
+      id-type: auto
+
+logging:
+  file: ./logs/${spring.application.name}.log
+  level:
+#    root: DEBUG
+    com.shares:
+      mapper: DEBUG

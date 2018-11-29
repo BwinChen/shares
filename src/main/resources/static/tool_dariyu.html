@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+<link rel="shortcut icon"  href="image/icon.ico" type="image/x-icon">
+<link rel="Bookmark" href="image/icon.ico">
+<link rel="icon" type="image/x-icon" href="image/icon.ico">
+<title>打日语-日语输入法_日语在线输入_日语键盘_日语五十音_日语字符</title>
+<meta name="Description" content="打日语 日语在线输入" />
+<meta name="Keywords" content="日语输入法 日语五十音在线输入 日语在线输入 日语键盘" />
+<link rel="stylesheet" type="text/css" href="css/app.min.css" />
+<style type="text/css">
+#selection a {
+    margin-right: 10px;
+    color: #009999;
+}
+#selection a.st {
+    color: #ff0000;
+}
+table {
+    font: 12px/1.5 tahoma, arial, 宋体, sans-serif;
+}
+td {
+    font-size: 9px;
+}
+.style1 {color: #FF0033}
+.bt1 { width: 34px; height:34px; font-size:18px; color:#CC0033; font-family:'Arial Unicode MS'; border: 1px solid #e1e1e1; }
+.bf {cursor:pointer; font-size: 12px; color:#666666; border: 1px solid #e1e1e1; padding: 1px 8px;}
+.cadr { width:80%; color:blue; font-family:Verdana; font-size:12pt; padding:5px; border: 1px solid #e1e1e1; scrollbar-base-color:transparent; scrollbar-track-color:transparent; }
+</style>
+</head>
+<body>
+<div class="app" id="app-font">
+    <div id="header"></div>
+    <div id="content" style="width: 1000px; margin: 0 auto; overflow: hidden;">
+        <div id="selection" style=" margin: 10px auto; text-align: center;">
+            <a href="./tool_dahanyu.html">打韩语</a>
+            <a href="./tool_dariyu.html" class="st">打日语</a>
+            <a href="./tool_dawaiyu.html">打阿拉伯语</a>
+        </div>
+        <form name="conversion" class="mt10">
+            <div align="center">
+                <textarea name="saisie" rows="8" onkeyup="transcrire()" class="cadr"></textarea>
+                <br>
+                <br>
+                <input type="button" onclick="conversion.saisie.select();copy()" value="复制" class="bf"> &nbsp;&nbsp; &nbsp;
+                <input type="button" onclick="conversion.saisie.rows=8;conversion.saisie.focus()" value="小屏" class="bf"> &nbsp; &nbsp;
+                <input type="button" onclick="conversion.saisie.rows=30;conversion.saisie.focus()" value="大屏" class="bf">
+                <br>
+                <br>
+                <font color="#CC0000">平假名</font> 浊音 半浊音</div>
+            <table align="center" style="margin: 0 auto;">
+                <tbody>
+                    <tr align="center">
+                        <td>a</td>
+                        <td>&nbsp;</td>
+                        <td>ka</td>
+                        <td>sa</td>
+                        <td>ta</td>
+                        <td>na</td>
+                        <td>ha</td>
+                        <td>ma</td>
+                        <td>ya</td>
+                        <td>&nbsp;</td>
+                        <td>ra</td>
+                        <td>wa</td>
+                        <td>ga</td>
+                        <td>za</td>
+                        <td>da</td>
+                        <td>ba</td>
+                        <td>pa</td>
+                    </tr>
+                    <tr align="center">
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;あ&#39;)" value="あ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ぁ&#39;)" value="ぁ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;か&#39;)" value="か">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;さ&#39;)" value="さ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;た&#39;)" value="た">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;な&#39;)" value="な">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;は&#39;)" value="は">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ま&#39;)" value="ま">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;や&#39;)" value="や">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ゃ&#39;)" value="ゃ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ら&#39;)" value="ら">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;わ&#39;)" value="わ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;が&#39;)" value="が">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ざ&#39;)" value="ざ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;だ&#39;)" value="だ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ば&#39;)" value="ば">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ぱ&#39;)" value="ぱ">
+                        </td>
+                    </tr>
+                    <tr align="center">
+                        <td>i</td>
+                        <td>&nbsp;</td>
+                        <td>ki</td>
+                        <td>shi</td>
+                        <td>chi</td>
+                        <td>ni</td>
+                        <td>hi</td>
+                        <td>mi</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>ri</td>
+                        <td>&nbsp;</td>
+                        <td>gi</td>
+                        <td>ji</td>
+                        <td>ji</td>
+                        <td>bi</td>
+                        <td>pi</td>
+                    </tr>
+                    <tr align="center">
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;い&#39;)" value="い">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ぃ&#39;)" value="ぃ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;き&#39;)" value="き">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;し&#39;)" value="し">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ち&#39;)" value="ち">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;に&#39;)" value="に">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ひ&#39;)" value="ひ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;み&#39;)" value="み">
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;り&#39;)" value="り">
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ぎ&#39;)" value="ぎ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;じ&#39;)" value="じ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ぢ&#39;)" value="ぢ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;び&#39;)" value="び">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ぴ&#39;)" value="ぴ">
+                        </td>
+                    </tr>
+                    <tr align="center">
+                        <td>u</td>
+                        <td>&nbsp;</td>
+                        <td>ku</td>
+                        <td>su</td>
+                        <td>tsu</td>
+                        <td>nu</td>
+                        <td>fu</td>
+                        <td>mu</td>
+                        <td>yu</td>
+                        <td>&nbsp;</td>
+                        <td>ru</td>
+                        <td>&nbsp;</td>
+                        <td>gu</td>
+                        <td>zu</td>
+                        <td>zu</td>
+                        <td>bu</td>
+                        <td>pu</td>
+                    </tr>
+                    <tr align="center">
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;う&#39;)" value="う">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ぅ&#39;)" value="ぅ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;く&#39;)" value="く">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;す&#39;)" value="す">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;つ&#39;)" value="つ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ぬ&#39;)" value="ぬ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ふ&#39;)" value="ふ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;む&#39;)" value="む">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ゆ&#39;)" value="ゆ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ゅ&#39;)" value="ゅ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;る&#39;)" value="る">
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ぐ&#39;)" value="ぐ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ず&#39;)" value="ず">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;づ&#39;)" value="づ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ぶ&#39;)" value="ぶ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ぷ&#39;)" value="ぷ">
+                        </td>
+                    </tr>
+                    <tr align="center">
+                        <td>e</td>
+                        <td>&nbsp;</td>
+                        <td>ke</td>
+                        <td>se</td>
+                        <td>te</td>
+                        <td>ne</td>
+                        <td>he</td>
+                        <td>me</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>re</td>
+                        <td>&nbsp;</td>
+                        <td>ge</td>
+                        <td>ze</td>
+                        <td>de</td>
+                        <td>be</td>
+                        <td>pe</td>
+                    </tr>
+                    <tr align="center">
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;え&#39;)" value="え">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ぇ&#39;)" value="ぇ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;け&#39;)" value="け">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;せ&#39;)" value="せ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;て&#39;)" value="て">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ね&#39;)" value="ね">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;へ&#39;)" value="へ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;め&#39;)" value="め">
+                        </td>
+                        <td></td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;れ&#39;)" value="れ">
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;げ&#39;)" value="げ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ぜ&#39;)" value="ぜ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;で&#39;)" value="で">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;べ&#39;)" value="べ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ぺ&#39;)" value="ぺ">
+                        </td>
+                    </tr>
+                    <tr align="center">
+                        <td>o</td>
+                        <td>&nbsp;</td>
+                        <td>ko</td>
+                        <td>so</td>
+                        <td>to</td>
+                        <td>no</td>
+                        <td>ho</td>
+                        <td>mo</td>
+                        <td>yo</td>
+                        <td>&nbsp;</td>
+                        <td>ro</td>
+                        <td>wo</td>
+                        <td>go</td>
+                        <td>zo</td>
+                        <td>do</td>
+                        <td>bo</td>
+                        <td>po</td>
+                    </tr>
+                    <tr align="center">
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;お&#39;)" value="お">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ぉ&#39;)" value="ぉ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;こ&#39;)" value="こ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;そ&#39;)" value="そ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;と&#39;)" value="と">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;の&#39;)" value="の">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ほ&#39;)" value="ほ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;も&#39;)" value="も">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;よ&#39;)" value="よ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ょ&#39;)" value="ょ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ろ&#39;)" value="ろ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;を&#39;)" value="を">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ご&#39;)" value="ご">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ぞ&#39;)" value="ぞ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ど&#39;)" value="ど">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ぼ&#39;)" value="ぼ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ぽ&#39;)" value="ぽ">
+                        </td>
+                    </tr>
+                    <tr align="center">
+                        <td>&nbsp;</td>
+                        <td>v</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>n</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr align="center">
+                        <td>&nbsp; </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ゔ&#39;)" value="ゔ">
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;っ&#39;)" value="っ">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;ん&#39;)" value="ん">
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;、&#39;)" value="、">
+                        </td>
+                        <td>
+                            <input name="button" type="button" class="bt1" onclick="alpha(&#39;。&#39;)" value="。">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div align="center">
+                <br>
+                <font color="#CC0000">片假名</font> 浊音 半浊音
+                <table align="center">
+                    <tbody>
+                        <tr align="center">
+                            <td width="32">a</td>
+                            <td>&nbsp;</td>
+                            <td width="32">ka</td>
+                            <td width="32">sa</td>
+                            <td width="32">ta</td>
+                            <td width="32">na</td>
+                            <td width="32">ha</td>
+                            <td width="32">ma</td>
+                            <td width="32">ya</td>
+                            <td>&nbsp;</td>
+                            <td width="32">ra</td>
+                            <td width="32">wa</td>
+                            <td>ga</td>
+                            <td>za</td>
+                            <td>da</td>
+                            <td>ba</td>
+                            <td>pa</td>
+                        </tr>
+                        <tr align="center">
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ア&#39;)" value="ア">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ァ&#39;)" value="ァ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;カ&#39;)" value="カ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;サ&#39;)" value="サ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;タ&#39;)" value="タ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ナ&#39;)" value="ナ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ハ&#39;)" value="ハ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;マ&#39;)" value="マ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ヤ&#39;)" value="ヤ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ャ&#39;)" value="ャ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ラ&#39;)" value="ラ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ワ&#39;)" value="ワ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ガ&#39;)" value="ガ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ザ&#39;)" value="ザ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;だ&#39;)" value="ダ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;バ&#39;)" value="バ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;パ&#39;)" value="パ">
+                            </td>
+                        </tr>
+                        <tr align="center">
+                            <td>i</td>
+                            <td>&nbsp;</td>
+                            <td>ki</td>
+                            <td>shi</td>
+                            <td>chi</td>
+                            <td>ni</td>
+                            <td>hi</td>
+                            <td>mi</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>ri</td>
+                            <td>&nbsp;</td>
+                            <td>gi</td>
+                            <td>ji</td>
+                            <td>ji</td>
+                            <td>bi</td>
+                            <td>pi</td>
+                        </tr>
+                        <tr align="center">
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;イ&#39;)" value="イ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ィ&#39;)" value="ィ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;キ&#39;)" value="キ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;シ&#39;)" value="シ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;チ&#39;)" value="チ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ニ&#39;)" value="ニ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ヒ&#39;)" value="ヒ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ミ&#39;)" value="ミ">
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;リ&#39;)" value="リ">
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ギ&#39;)" value="ギ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ジ&#39;)" value="ジ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ヂ&#39;)" value="ヂ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ビ&#39;)" value="ビ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ピ&#39;)" value="ピ">
+                            </td>
+                        </tr>
+                        <tr align="center">
+                            <td>u</td>
+                            <td>&nbsp;</td>
+                            <td>ku</td>
+                            <td>su</td>
+                            <td>tsu</td>
+                            <td>nu</td>
+                            <td>fu</td>
+                            <td>mu</td>
+                            <td>yu</td>
+                            <td>&nbsp;</td>
+                            <td>ru</td>
+                            <td>&nbsp;</td>
+                            <td>gu</td>
+                            <td>zu</td>
+                            <td>zu</td>
+                            <td>bu</td>
+                            <td>pu</td>
+                        </tr>
+                        <tr align="center">
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ウ&#39;)" value="ウ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ゥ&#39;)" value="ゥ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ク&#39;)" value="ク">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ス&#39;)" value="ス">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ツ&#39;)" value="ツ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ヌ&#39;)" value="ヌ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;フ&#39;)" value="フ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ム&#39;)" value="ム">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ユ&#39;)" value="ユ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ュ&#39;)" value="ュ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ル&#39;)" value="ル">
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;グ&#39;)" value="グ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ズ&#39;)" value="ズ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ヅ&#39;)" value="ヅ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ブ&#39;)" value="ブ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;プ&#39;)" value="プ">
+                            </td>
+                        </tr>
+                        <tr align="center">
+                            <td>e</td>
+                            <td>&nbsp;</td>
+                            <td>ke</td>
+                            <td>se</td>
+                            <td>te</td>
+                            <td>ne</td>
+                            <td>he</td>
+                            <td>me</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>re</td>
+                            <td>&nbsp;</td>
+                            <td>ge</td>
+                            <td>ze</td>
+                            <td>de</td>
+                            <td>be</td>
+                            <td>pe</td>
+                        </tr>
+                        <tr align="center">
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;エ&#39;)" value="エ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ェ&#39;)" value="ェ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ケ&#39;)" value="ケ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;セ&#39;)" value="セ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;テ&#39;)" value="テ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ネ&#39;)" value="ネ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ヘ&#39;)" value="ヘ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;メ&#39;)" value="メ">
+                            </td>
+                            <td></td>
+                            <td>&nbsp;</td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;レ&#39;)" value="レ">
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ゲ&#39;)" value="ゲ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ゼ&#39;)" value="ゼ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;デ&#39;)" value="デ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ベ&#39;)" value="ベ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ペ&#39;)" value="ペ">
+                            </td>
+                        </tr>
+                        <tr align="center">
+                            <td>o</td>
+                            <td>&nbsp;</td>
+                            <td>ko</td>
+                            <td>so</td>
+                            <td>to</td>
+                            <td>no</td>
+                            <td>ho</td>
+                            <td>mo</td>
+                            <td>yo</td>
+                            <td>&nbsp;</td>
+                            <td>ro</td>
+                            <td>wo</td>
+                            <td>go</td>
+                            <td>zo</td>
+                            <td>do</td>
+                            <td>bo</td>
+                            <td>po</td>
+                        </tr>
+                        <tr align="center">
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;オ&#39;)" value="オ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ォ&#39;)" value="ォ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;コ&#39;)" value="コ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ソ&#39;)" value="ソ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ト&#39;)" value="ト">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ノ&#39;)" value="ノ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ホ&#39;)" value="ホ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;モ&#39;)" value="モ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ヨ&#39;)" value="ヨ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ョ&#39;)" value="ョ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ロ&#39;)" value="ロ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ヲ&#39;)" value="ヲ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ゴ&#39;)" value="ゴ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ゾ&#39;)" value="ゾ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ド&#39;)" value="ド">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ボ&#39;)" value="ボ">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ポ&#39;)" value="ポ">
+                            </td>
+                        </tr>
+                        <tr align="center">
+                            <td>&nbsp;</td>
+                            <td>v</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>n</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr align="center">
+                            <td>&nbsp; </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;ヴ&#39;)" value="ヴ">
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>
+                                <input name="button4" type="button" class="bt1" onclick="alpha(&#39;ッ&#39;)" value="ッ">
+                            </td>
+                            <td>
+                                <input name="button2" type="button" class="bt1" onclick="alpha(&#39;ン&#39;)" value="ン">
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>
+                                <input name="button32" type="button" class="bt1" onclick="alpha(&#39;、&#39;)" value="ー">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;、&#39;)" value="、">
+                            </td>
+                            <td>
+                                <input name="button3" type="button" class="bt1" onclick="alpha(&#39;。&#39;)" value="。">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+            </div>
+        </form>
+    </div>
+    <div id="footer"></div>
+</div>
+<script type="text/javascript" src="js/lib/tpl.js"></script>
+<script type="text/javascript" src="js/lib/app.min.js"></script>
+<script type="text/javascript" src="js/lib/tools.js"></script>
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101313065" charset="utf-8"></script>
+<script>
+function alpha(item) { 
+    var input = document.conversion.saisie;
+         if (document.selection) { 
+            input.focus();
+            range = document.selection.createRange() ;
+            range.text = item ;
+            range.select(); 
+        }
+        else if (input.selectionStart || input.selectionStart == '0') {
+        var startPos = input.selectionStart;
+        var endPos = input.selectionEnd;
+        var cursorPos = startPos;
+        var scrollTop = input.scrollTop;
+        var baselength = 0;
+        input.value = input.value.substring(0, startPos)
+            + item
+            + input.value.substring(endPos, input.value.length);
+        cursorPos += item.length;
+        input.focus();
+        input.selectionStart = cursorPos;
+        input.selectionEnd = cursorPos;
+        input.scrollTop = scrollTop;
+        }
+    else {
+        input.value += item;
+        input.focus();
+    }
+}
+
+function copy() { 
+textRange=document.conversion.saisie.createTextRange();   textRange.execCommand("Copy");   textRange="";
+}
+
+
+var ca;
+function transit() {
+ca = document.conversion.saisie.value;
+document.bp.typedText.value=ca;
+document.bp.submit(); 
+}
+</script>
+<script type="text/javascript">
+// 百度统计
+// var _hmt = _hmt || [];
+// (function () {
+//     var hm = document.createElement("script");
+//     hm.src = "//hm.baidu.com/hm.js?0b2e7e597c93ff3bbeffb23e425189d5";
+//     var s = document.getElementsByTagName("script")[0];
+//     s.parentNode.insertBefore(hm, s);
+// })();
+</script>
+<script type="text/javascript">
+     document.write('<a style="display:none!important" id="tanx-a-mm_98042776_7562526_25452011"></a>');
+     tanx_s = document.createElement("script");
+     tanx_s.type = "text/javascript";
+     tanx_s.charset = "gbk";
+     tanx_s.id = "tanx-s-mm_98042776_7562526_25452011";
+     tanx_s.async = true;
+     tanx_s.src = "http://p.tanx.com/ex?i=mm_98042776_7562526_25452011";
+     tanx_h = document.getElementsByTagName("head")[0];
+     if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+</script>
+</body>
+</html>

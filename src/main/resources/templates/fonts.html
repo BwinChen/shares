@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+<link rel="shortcut icon"  href="image/icon.ico" th:href="@{/image/icon.ico}" type="image/x-icon">
+<link rel="Bookmark" href="image/icon.ico" th:href="@{/image/icon.ico}">
+<link rel="icon" type="image/x-icon" href="image/icon.ico" th:href="@{/image/icon.ico}">
+<title th:text="|${result.search.fontName}下载-${result.search.fontName}预览-${result.search.fontName}库-求字体网|">求字体网</title>
+<meta name="description" content="求字体网(qiuziti.com)提供字体下载，通过字体库进行免费下载和预览您需要的字体。同时，我们还支持上传图片就能识别字体的服务。"/>
+<link rel="stylesheet" type="text/css" href="css/app.min.css" th:href="@{/css/app.min.css}">
+</head>
+<body>
+<div class="app" id="app-search">
+    <div id="header"></div>
+    <div id="content">
+        <div class="content" style="background-color: #fafafa;">
+            <div class="wrap">
+                <div class="breadcrumb">
+                    <span>当前位置：</span>
+                    <span><a href="./index.html" th:href="@{/index.html}">首页</a><span class="separator">></span></span>
+                    <span><label class="font-name">xxx</label></span>
+                </div>
+                <div class="search">
+                    <div class="font-header">
+                        <h1 th:text="${#httpServletRequest.getParameter('fontName')}">XXXX</h1>
+                        <div class="font-search">
+                            <div class="font-search-inp">
+                                <input type="text" class="search-input" maxlength="30" placeholder="请输入您要查找的字体名">
+                                <span class="search-btn font-search-click" id="searchBtn"><i></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="font-result">
+                        <div class="font-content">
+                            <div class="font-have">
+                                <div class="font-bar">
+                                    <div class="font-size">
+                                        <i class="size"></i>
+                                        <div class="silder">
+                                          <span class="size-text">字体大小</span>
+                                          <div class="size-select">
+                                            <span class="text" th:text="|${result.search.fontSize}pt|">9pt</span><i class="icons"></i>
+                                            <ul class="size-list">
+                                                <li data-height="13" data-size="9" data-top="20" class="size-item" th:class="${result.search.fontSize==9}?'size-item on' : 'size-item '">9pt</li>
+                                                <li data-height="14" data-size="10" data-top="20" class="size-item" th:class="${result.search.fontSize==10}?'size-item on' : 'size-item '">10pt</li>
+                                                <li data-height="16" data-size="11" data-top="20" class="size-item" th:class="${result.search.fontSize==11}?'size-item on' : 'size-item '">11pt</li>
+                                                <li data-height="17" data-size="12" data-top="20" class="size-item" th:class="${result.search.fontSize==12}?'size-item on' : 'size-item '">12pt</li>
+                                                <li data-height="20" data-size="14" data-top="20" class="size-item" th:class="${result.search.fontSize==14}?'size-item on' : 'size-item '">14pt</li>
+                                                <li data-height="26" data-size="18" data-top="20" class="size-item" th:class="${result.search.fontSize==18}?'size-item on' : 'size-item '">18pt</li>
+                                                <li data-height="35" data-size="24" data-top="24" class="size-item" th:class="${result.search.fontSize==24}?'size-item on' : 'size-item '">24pt</li>
+                                                <li data-height="52" data-size="36" data-top="30" class="size-item on" th:class="${result.search.fontSize==36}?'size-item on' : 'size-item '">36pt</li>
+                                                <li data-height="70" data-size="48" data-top="40" class="size-item" th:class="${result.search.fontSize==48}?'size-item on' : 'size-item '">48pt</li>
+                                                <li data-height="88" data-size="60" data-top="50" class="size-item" th:class="${result.search.fontSize==60}?'size-item on' : 'size-item '">60pt</li>
+                                                <li data-height="105" data-size="72" data-top="60" class="size-item" th:class="${result.search.fontSize==72}?'size-item on' : 'size-item '">72pt</li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="font-preview">
+                                        <div class="preview-bar">
+                                            <input type="text" class="preview-input" maxlength="15" placeholder="请输入您要预览的文字">
+                                            <span class="preview-btn font-search-click" id="previewBtn">预览</span>
+                                        </div>
+                                        <a href="javascript:;" class="jftrans" data-type='jt'>简</a>
+                                        <a href="javascript:;" class="jftrans" data-type='ft'>繁</a>
+                                    </div>
+                                </div>
+                                <div class="font-main">
+                                    <div class="font-item" th:each="font,iterStat:${result.fonts}" th:data-id="${font.id}">
+                                        <div class="font-item-box">
+                                            <div class="font-info">
+                                                <div class="font-pic"><img src="http://www.qiuziti.com/img/def_preview.png" th:src="@{|data:image/jpeg;base64,${font.fontImage}|}"/></div>
+                                                <div class="font-txt" th:switch="${font.fileType}">
+                                                    <span class="middle" th:case="'ttf'"><i class="ttf"></i><span class="s" th:text="${font.fontName}"></span></span>
+                                                    <span class="middle" th:case="'otf'"><i class="otf"></i><span class="s" th:text="${font.fontName}"></span></span>
+                                                    <span class="middle" th:case="*"><i></i><span class="s" th:text="${font.fontName}"></span></span>
+                                                    <span class="la" th:text="|语言：${font.language}|">语言：</span>
+                                                    <span class="font-collect">收藏：<i th:data-id="${font.id}"></i></span>
+                                                </div>
+                                            </div>
+                                            <div class="font-btn"><a class="font-down" th:href="@{|/download.html?id=${font.fontId}&font=${font.fontName}|}" target="_blank"><i class="icon-down"></i><span>下载</span></a></div>
+                                        </div>
+                                        <div class="font-item-attr-box" style="display:none;">
+                                            <div class="font-attr-content">
+                                                <div class="font-attr-item">
+                                                    <span>文件名称</span>
+                                                    <p th:text="${font.fontName}"></p>
+                                                </div>
+                                                <div class="font-attr-item">
+                                                    <span>字体家族</span>
+                                                    <p th:text="${font.family}"></p>
+                                                </div>
+                                                <div class="font-attr-item">
+                                                    <span>文件大小</span>
+                                                    <p th:text="${font.fileSize}"></p>
+                                                </div>
+                                                <div class="font-attr-item">
+                                                    <span>PostScript名称</span>
+                                                    <p th:text="${font.postscriptName}"></p>
+                                                </div>
+                                                <div class="font-attr-item">
+                                                    <span>风格</span>
+                                                    <p th:text="${font.fontStyle}"></p>
+                                                </div>
+                                                <div class="font-attr-item">
+                                                    <span>格式</span>
+                                                    <p th:text="${font.fileType}"></p>
+                                                </div>
+                                                <div class="font-attr-item">
+                                                    <span>语言</span>
+                                                    <p th:text="${font.language}"></p>
+                                                </div>
+                                                <div class="font-attr-item">
+                                                    <span>版本</span>
+                                                    <p th:text="${font.version}"></p>
+                                                </div>
+                                                <div class="font-attr-item">
+                                                    <span>字符集</span>
+                                                    <p th:text="${font.charset}"></p>
+                                                </div>
+                                                <div class="font-attr-item">
+                                                    <span>字符数</span>
+                                                    <p th:text="${font.charSize}"></p>
+                                                </div>
+                                                <div class="font-attr-item">
+                                                    <span>版权</span>
+                                                    <p th:text="${font.copyright}"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="font-pager">
+                                    <div id="pagination">
+                                        <div class="pagination">
+                                            <span class="current pageStyle prev" th:if="${result.currentPage==1}">&lt;</span>
+                                            <a th:href="@{|/fonts.html?fontName=${result.search.fontName}&fontSize=${result.search.fontSize}&height=${result.search.height}&fetchSize=${result.search.fetchSize}&offset=${result.currentPage-2}|}" th:if="${result.currentPage>1}" style="text-decoration:none;" class="prev">&lt;</a>
+                                            <a th:href="@{|/fonts.html?fontName=${result.search.fontName}&fontSize=${result.search.fontSize}&height=${result.search.height}&fetchSize=${result.search.fetchSize}&offset=${result.currentPage-4}|}" th:if="${result.currentPage-3 >=1}" th:text="${result.currentPage -3}" style="text-decoration:none;"></a>
+                                            <a th:href="@{|/fonts.html?fontName=${result.search.fontName}&fontSize=${result.search.fontSize}&height=${result.search.height}&fetchSize=${result.search.fetchSize}&offset=${result.currentPage-3}|}" th:if="${result.currentPage-2 >=1}" th:text="${result.currentPage -2}" style="text-decoration:none;"></a>
+                                            <a th:href="@{|/fonts.html?fontName=${result.search.fontName}&fontSize=${result.search.fontSize}&height=${result.search.height}&fetchSize=${result.search.fetchSize}&offset=${result.currentPage-2}|}" th:if="${result.currentPage-1 >=1}" th:text="${result.currentPage -1}" style="text-decoration:none;"></a>
+                                            <span class="current pageStyle" th:text="${result.currentPage}">1</span>
+                                            <a th:href="@{|/fonts.html?fontName=${result.search.fontName}&fontSize=${result.search.fontSize}&height=${result.search.height}&fetchSize=${result.search.fetchSize}&offset=${result.currentPage}|}" th:if="${result.currentPage+1<=result.totalPage}" th:text="${result.currentPage+1}" style="text-decoration:none;"></a>
+                                            <a th:href="@{|/fonts.html?fontName=${result.search.fontName}&fontSize=${result.search.fontSize}&height=${result.search.height}&fetchSize=${result.search.fetchSize}&offset=${result.currentPage+1}|}" th:if="${result.currentPage+2<=result.totalPage}" th:text="${result.currentPage+2}" style="text-decoration:none;"></a>
+                                            <a th:href="@{|/fonts.html?fontName=${result.search.fontName}&fontSize=${result.search.fontSize}&height=${result.search.height}&fetchSize=${result.search.fetchSize}&offset=${result.currentPage+2}|}" th:if="${result.currentPage+3<=result.totalPage}" th:text="${result.currentPage+3}" style="text-decoration:none;"></a>
+                                            <a th:href="@{|/fonts.html?fontName=${result.search.fontName}&fontSize=${result.search.fontSize}&height=${result.search.height}&fetchSize=${result.search.fetchSize}&offset=${result.currentPage}|}" th:if="${result.currentPage<result.totalPage}" style="text-decoration:none;" class="next">&gt;</a>
+                                            <span class="current pageStyle next" th:if="${result.currentPage==result.totalPage}">&gt;</span>
+                                            <div style="clear:both"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="font-attr">
+                            <div class="font-attr-padding">
+                                <div class="font-attr-title">字体属性</div>
+                                <div class="font-attr-con"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+</div>
+<script type="text/javascript" src="js/lib/tpl.js" th:src="@{/js/lib/tpl.js}"></script>
+<script type="text/javascript" src="js/lib/app.min.js" th:src="@{/js/lib/app.min.js}"></script>
+<script type="text/javascript" src="js/lib/fonts.js" th:src="@{/js/lib/fonts.js}"></script>
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" th:src="@{http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js}" data-appid="101313065" charset="utf-8"></script>
+<script type="text/javascript">
+    // 百度统计
+    // var _hmt = _hmt || [];
+    // (function () {
+    //     var hm = document.createElement("script");
+    //     hm.src = "//hm.baidu.com/hm.js?0b2e7e597c93ff3bbeffb23e425189d5";
+    //     var s = document.getElementsByTagName("script")[0];
+    //     s.parentNode.insertBefore(hm, s);
+    // })();
+</script>
+
+</body>
+</html>

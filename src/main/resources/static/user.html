@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+<link rel="shortcut icon"  href="image/icon.ico" type="image/x-icon">
+<link rel="Bookmark" href="image/icon.ico">
+<link rel="icon" type="image/x-icon" href="image/icon.ico">
+<title>个人中心-您的字体下载、预览和缺失字体补齐的好助手、好管家</title>
+<meta name="description" content="求字体网免费提供上传图片找字体、字体实时预览及字体下载服务，本网站可识别中文、英文、日韩、书法等多种类字体。只要上传图片或输入字体名称，就可以帮您找字体。">
+<link rel="stylesheet" type="text/css" href="css/app.min.css" />
+</head>
+<body>
+<div class="app" id="app-users">
+    <div id="header"></div>
+    <div id="content" style="background-color: #f3f4f7;">
+        <div class="user">
+            <div class="user-nav">
+                <div class="user-nav-info">
+                    <div class="user-nav-pic">
+                        <img id="user-nav-pic" src="image/common/avatar-head.png" />
+                    </div>
+                    <div class="user-nav-name">
+                        <span id="user-nav-name">昵称</span><i></i>
+                    </div>
+                    <div class="user-nav-address">
+                        <p id="user-nav-address">地区</p>
+                    </div>
+                </div>
+                <ul class="user-nav-list">
+                    <li class="cur">
+                        <a href="javascript:void(0);">个人资料</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">安全设置</a>
+                    </li>
+                    <li>
+                        <a href="./contact.html">意见反馈</a>
+                    </li>
+                    <li>
+                        <a href="./tutorials.html">帮助中心</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="user-content">
+                <div class="user-info user-cont cur">
+                    <div class="user-cont-title">个人资料</div>
+                    <div class="user-cont-avatar">
+                        <div class="user-avatar-tit">头像</div>
+                        <div class="user-avatar-pic">
+                            <img id="user-avatar-pic" src="image/common/avatar-head.png" />
+                            <input type="file" class="user-avatar-uploader" id="user-avatar-uploader" />
+                            <div class="user-avatar-mask">修改</div>
+                        </div>
+                    </div>
+                    <div class="user-cont-name">
+                        <div class="user-name-tit">昵称</div>
+                        <div class="user-name-con">
+                            <div class="user-name-cont">
+                                <span id="user-cont-name">昵称</span><span class="user-name-btn">修改</span>
+                            </div>
+                            <div class="user-name-edit">
+                                <p style="margin-bottom: 20px;"><input type="text" id="user-name-val" value="昵称" /></p>
+                                <p><a class="user-name-save" href="javascript:void(0);">保存</a><a class="user-name-cancel" href="javascript:void(0);">取消</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-cont-address">
+                        <div class="user-address-tit">现居</div>
+                        <div class="user-address-con city-plug-parent js-tab-city">
+                            <span class="cur-city-select" data-code="4170" data-path=",1,7,247,4170," id="nowcity">北京</span>
+                            <i class="select-shixin-arrow"></i>
+                            <div class="city-panel-layer">
+                                <div class="radio city-title js-city-radio">
+                                    <label for="radio_nowcn" class="radio-0 mr-30"><input type="radio" name="city-radio" id="radio_nowcn" value="cn" checked="checked" class="">中国</label>
+                                    <label for="radio_nowen" class="radio-1"><input type="radio" name="city-radio" id="radio_nowen" value="en" class="">其他国家和地区 </label>
+                                </div>
+                                <div class="js-city-covers"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-safe user-cont">
+                    <div class="user-cont-title">安全设置</div>
+                    <div class="user-cont-security">
+                        <div class="security-item" id="mobile">
+                            <div class="si-left"><i class="i-security-mobile"></i><span class="si-title">手机绑定</span><i class="i-tips"></i></div>
+                            <div class="si-right"><a class="si-btn" href="javascript:void(0);">立即绑定</a></div>
+                            <div class="si-info">您还未绑定手机号</div>
+                        </div>
+                        <div class="security-item" id="email">
+                            <div class="si-left"><i class="i-security-email"></i><span class="si-title">邮箱绑定</span><i class="i-tips"></i></div>
+                            <div class="si-right"><a class="si-btn" href="javascript:void(0);">立即绑定</a></div>
+                            <div class="si-info">您还未绑定邮箱帐号</div>
+                        </div>
+                        <div class="security-item" id="loginpwd">
+                            <div class="si-left"><i class="i-security-loginpwd"></i><span class="si-title">登录密码</span><i class="i-tips i-tip-ok"></i></div>
+                            <div class="si-right"><a class="si-btn update" href="javascript:void(0);">修改</a></div>
+                            <div class="si-info">为了您的账户安全，建议定时更改账户密码</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+</div>
+<script type="text/javascript" src="js/lib/tpl.js"></script>
+<script type="text/javascript" src="js/lib/app.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="js/lib/zcity.js"></script>
+<script type="text/javascript" src="js/lib/user.js"></script>
+<script type="text/javascript">
+// 百度统计
+// var _hmt = _hmt || [];
+// (function () {
+//     var hm = document.createElement("script");
+//     hm.src = "//hm.baidu.com/hm.js?0b2e7e597c93ff3bbeffb23e425189d5";
+//     var s = document.getElementsByTagName("script")[0];
+//     s.parentNode.insertBefore(hm, s);
+// })();
+</script>
+</body>
+</html>

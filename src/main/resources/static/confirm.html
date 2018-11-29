@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+<link rel="shortcut icon"  href="image/icon.ico" type="image/x-icon">
+<link rel="Bookmark" href="image/icon.ico">
+<link rel="icon" type="image/x-icon" href="image/icon.ico">
+<title>字体下载-求字体网提供中文和英文字体库下载、识别与预览服务，找字体的好帮手</title>
+<meta name="description" content="求字体网免费提供上传图片找字体、字体实时预览及字体下载服务，本网站可识别中文、英文、日韩、书法等多种类字体。只要上传图片或输入字体名称，就可以帮您找字体。">
+<link rel="stylesheet" type="text/css" href="css/app.min.css">
+</head>
+<body>
+<div class="app" id="app-confirm">
+    <div id="header"></div>
+    <div id="content">
+        <div class="content">
+            <div id="confirm">
+                <div class="wrap">
+                    <div class="search confirm">
+                        <div class="step">
+                            <ul>
+                                <li><span class="yu">1</span>上传图片</li>
+                                <li class="on"><span class="yu">2</span>拆分单字</li>
+                                <li><span class="yu">3</span>搜索结果</li>
+                            </ul>
+                        </div>
+                        <div class="oriitem">
+                            <img alt="" id="oriimg" src="./image/common/loading.gif" />
+                        </div>
+                        <div class="font-header">
+                            <div class="font-title"><b class="font-title-box">智能拆字</b><span class="font-title-tips">请选择下方正确而完整的单字</span><i class="font-title-iques"><div class="tipsPop"><img src="./image/common/confirm-info.png" alt=""></div></i></div>
+                            <div class="font-reset">
+                                <a class="rese fr"><i class="i3"></i><span class="s">重新上传</span></a>
+                            </div>
+                        </div>
+                        <div class="font-result">
+                            <div class="font-content">
+                                <!-- 展示数据 -->
+                                <div class="font-confirm">
+                                    <!-- 拆分字体 -->
+                                    <div id="imgs" class="font-column clearfix"></div>
+                                    <!-- 搜索按钮 -->
+                                    <div id="btns">
+                                        <div class="font-confirm-btn sugbtn">
+                                            <span class="font-btn-box char">
+                                                智能拆字错误？请继续
+                                                <a href="#"><i class="i1"></i><span>原始拆字</span></a>
+                                            </span>
+                                            <span class="font-btn-box search">
+                                                <a href="#"><i class="i3"></i><span>开始搜索</span></a>
+                                            </span>
+                                        </div>
+                                        <div class="font-confirm-btn cusbtn" style="display: none;">
+                                            <span class="font-btn-box search">
+                                                <a href="#"><i class="i3"></i><span>开始搜索</span></a>
+                                            </span>
+                                            <span class="font-btn-box rset">
+                                                <a href="#"><i class="i2"></i><span>重新拆分</span></a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="font-attr">
+                                <div class="font-attr-padding">
+                                    <div id="font-need-revert">
+                                        <div class="font-attr-title"><i class="i3"></i>反白纠正</div>
+                                        <div class="font-attr-con">
+                                            <div class="font-attr-img"><img src="./image/common/confirm-attr-one.jpg" alt="" /></div>
+                                            <div class="font-attr-co">
+                                                <p>如果字体颜色<i>不是黑色而是白色</i>时，请点击</p>
+                                                <button class="gre"><i></i>反白纠正</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="font-attr-title"><i class="i3"></i>怎么拼字</div>
+                                    <div class="font-attr-con">
+                                        <div class="font-attr-img" id="font-attr-img"><img id="font-attr-hover" src="./image/common/confirm-attr-one.gif" alt="" /></div>
+                                        <div class="font-attr-co">
+                                            <button class="search_more"><a href="./tutorials.html" target="_blank">新手指南 >> </a></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="searchs" class="ihide">
+                <div class="wrap">
+                    <div class="search confirm">
+                        <div class="step">
+                            <ul>
+                                <li><span class="yu">1</span>上传图片</li>
+                                <li><span class="yu">2</span>拆分单字</li>
+                                <li class="on"><span class="yu">3</span>搜索结果</li>
+                            </ul>
+                        </div>
+                        <div class="oriitem">
+                            <img alt="" id="oriimg-search" src="./image/common/loading.gif" />
+                        </div>
+                        <div class="font-header">
+                            <div class="font-title">
+                                <p id="search_loading"><b class="font-title-box">正在识别搜索</b></p>
+                                <p id="search_res"><b class="font-title-box">搜索结果</b>共找到 <span class="c" id="total">0</span> 个可能匹配的字体</p>
+                            </div>
+                            <div class="font-reset">
+                                <a class="rese fr"><i class="i3"></i><span class="s">重新上传</span></a>
+                                <a class="back fr"><i class="i4"></i><span class="s">返回上一步</span></a>
+                            </div>
+                        </div>
+                        <div class="font-result">
+                            <div class="loading">
+                                <img style="width: 100px; height: 100px;" src="./image/common/searching.gif" />
+                                <p style="font-size: 14px; margin-top: 20px;">正在识别中...</p>
+                            </div>
+                            <div class="search-cont">
+                                <div class="font-content">
+                                    <div class="font-have">
+                                        <div class="font-bar">
+                                            <div class="font-size">
+                                                <i class="size"></i>
+                                                <div class="silder">
+                                                  <span class="size-text">字体大小</span>
+                                                  <div class="size-select">
+                                                    <span class="text"></span>
+                                                    <i class="icons"></i>
+                                                    <ul class="size-list">
+                                                        <li data-height="13" data-size="9" data-top="20" class="size-item">9pt</li>
+                                                        <li data-height="14" data-size="10" data-top="20" class="size-item">10pt</li>
+                                                        <li data-height="16" data-size="11" data-top="20" class="size-item">11pt</li>
+                                                        <li data-height="17" data-size="12" data-top="20" class="size-item">12pt</li>
+                                                        <li data-height="20" data-size="14" data-top="20" class="size-item">14pt</li>
+                                                        <li data-height="26" data-size="18" data-top="20" class="size-item">18pt</li>
+                                                        <li data-height="35" data-size="24" data-top="24" class="size-item">24pt</li>
+                                                        <li data-height="52" data-size="36" data-top="30" class="size-item on">36pt</li>
+                                                        <li data-height="70" data-size="48" data-top="40" class="size-item">48pt</li>
+                                                        <li data-height="88" data-size="60" data-top="50" class="size-item">60pt</li>
+                                                        <li data-height="105" data-size="72" data-top="60" class="size-item">72pt</li>
+                                                    </ul>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                            <div class="font-preview">
+                                                <div class="preview-bar">
+                                                    <input type="text" class="preview-input" maxlength="15" placeholder="请输入您要预览的文字">
+                                                    <span class="preview-btn" id="previewBtn">预览</span>
+                                                </div>
+                                                <a href="javascript:;" class="jftrans" data-type='jt'>简</a>
+                                                <a href="javascript:;" class="jftrans" data-type='ft'>繁</a>
+                                            </div>
+                                        </div>
+                                        <div class="font-main"></div>
+                                        <div class="font-pager">
+                                            <div id="pagination"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="font-attr">
+                                    <div class="font-attr-padding">
+                                        <div class="font-attr-title">字体属性</div>
+                                        <div class="font-attr-con">
+                                            <div class="font-attr-empty">
+                                              <i></i>
+                                              <p>未选中字体</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sbanner">
+                                    <a href="http://www.lianty.com/" target="_blank" title="链图云">找不到您要字体？可以尝试搜索素材</a>
+                                </div>
+                            </div>
+                            <div class="nodata">
+                                <img style="margin-bottom: 30px;" src="./image/common/null.png" />
+                                <p style="margin-bottom: 120px;">我们的字体库暂无匹配字体</p>
+                                <div class="sbanner">
+                                    <a href="http://www.lianty.com/" target="_blank" title="链图云">找不到您要字体？可以尝试搜索素材</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="original" class="original">
+                        <h1>您上传的图片（可拖拽）</h1>
+                        <div class="oriitem"><img id="oriimg-visi" src="./image/common/logo.png" /></div>
+                    </div>
+                </div>
+            </div>
+            <div id="gotop" class="gotop">返回顶部</div>
+        </div>
+    </div>
+    <div id="footer"></div>
+</div>
+<script type="text/javascript" src="js/lib/tpl.js"></script>
+<script type="text/javascript" src="js/lib/app.min.js"></script>
+<script type="text/javascript" src="js/lib/confirm.js"></script>
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101313065" charset="utf-8"></script>
+<script type="text/javascript">
+// 百度统计
+// var _hmt = _hmt || [];
+// (function () {
+//     var hm = document.createElement("script");
+//     hm.src = "//hm.baidu.com/hm.js?0b2e7e597c93ff3bbeffb23e425189d5";
+//     var s = document.getElementsByTagName("script")[0];
+//     s.parentNode.insertBefore(hm, s);
+// })();
+</script>
+</body>
+</html>

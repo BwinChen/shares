@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+<link rel="shortcut icon"  href="image/icon.ico" type="image/x-icon">
+<link rel="Bookmark" href="image/icon.ico">
+<link rel="icon" type="image/x-icon" href="image/icon.ico">
+<title>打阿拉伯语_阿拉伯语输入法-阿拉伯语键盘-阿拉伯语在线输入-阿拉伯语特殊字符</title>
+<meta name="Description" content="打阿拉伯语 阿拉伯语在线输入" />
+<meta name="Keywords" content="阿拉伯语输入法 阿拉伯语键盘  阿拉伯语在线输入" />
+<link rel="stylesheet" type="text/css" href="css/app.min.css" />
+<style type="text/css">
+#selection a {
+    margin-right: 10px;
+    color: #009999;
+}
+#selection a.st {
+    color: #ff0000;
+}
+table {
+    font: 12px/1.5 tahoma, arial, 宋体, sans-serif;
+}
+td {
+    font-size: 9px;
+}
+.style1 {color: #FF0033}
+.bf {cursor:pointer; font-size: 12px; color:#666666; border: 1px solid #e1e1e1; padding: 1px 8px;}
+.cadr { width:80%; color:blue; font-family:Verdana; font-size:12pt; padding:5px; border: 1px solid #e1e1e1; scrollbar-base-color:transparent; scrollbar-track-color:transparent; margin: 0 auto; }
+.bta, .bt1, .btb {
+    cursor: pointer;
+    width: 33px;
+    height: 20px;
+    font-size: 14px;
+    color: #CC0033;
+    font-family: 'Times New Roman';
+    border: 1px solid #e1e1e1;
+}
+</style>
+</head>
+<body>
+<div class="app" id="app-font">
+    <div id="header"></div>
+    <div id="content" style="width: 1000px; margin: 0 auto; overflow: hidden;">
+        <div id="selection" style=" margin: 10px auto; text-align: center;">
+            <a href="./tool_dahanyu.html">打韩语</a>
+            <a href="./tool_dariyu.html">打日语</a>
+            <a href="./tool_dawaiyu.html" class="st">打阿拉伯语</a>
+        </div>
+        <form name="conversion" class="mt10" style="margin: 0 auto 50px;">
+            <div align="center">
+                <textarea name="saisie" rows="8" onkeyup="transcrire()" class="cadr"></textarea>
+                <br>
+                <br>
+                <input type="button" onclick="conversion.saisie.select();copy()" value="复制" class="bf"> &nbsp;&nbsp; &nbsp;
+                <input type="button" onclick="conversion.saisie.rows=8;conversion.saisie.focus()" value="小屏" class="bf"> &nbsp; &nbsp;
+                <input type="button" onclick="conversion.saisie.rows=30;conversion.saisie.focus()" value="大屏" class="bf">
+            </div>
+            <br>
+            <br>
+            <div align="center">
+                <table>
+                    <tbody>
+                        <tr align="center">
+                            <td>D</td>
+                            <td>S</td>
+                            <td>s'</td>
+                            <td>s</td>
+                            <td>z</td>
+                            <td>r</td>
+                            <td>d'</td>
+                            <td>d</td>
+                            <td>H'</td>
+                            <td>H</td>
+                            <td>j</td>
+                            <td>t'</td>
+                            <td>t</td>
+                            <td>b</td>
+                            <td>a</td>
+                        </tr>
+                        <tr align="center">
+                            <td>
+                                <input name="button" type="button" class="bta" onclick="alpha(&#39;ض&#39;)" value="ض">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bta" onclick="alpha(&#39;ص&#39;)" value="ص">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ش&#39;)" value="ش">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;س&#39;)" value="س">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ز&#39;)" value="ز">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ر&#39;)" value="ر">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ذ&#39;)" value="ذ">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;د&#39;)" value="د">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;خ&#39;)" value="خ">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ح&#39;)" value="ح">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ج&#39;)" value="ج">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ث&#39;)" value="ث">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ت&#39;)" value="ت">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ب&#39;)" value="ب">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="btb" onclick="alpha(&#39;ا&#39;)" value="ا">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <table>
+                    <tbody>
+                        <tr align="center">
+                            <td>-</td>
+                            <td>y</td>
+                            <td>w</td>
+                            <td>h</td>
+                            <td>n</td>
+                            <td>m</td>
+                            <td>l</td>
+                            <td>k</td>
+                            <td>q</td>
+                            <td>f</td>
+                            <td>g'</td>
+                            <td>g</td>
+                            <td>Z</td>
+                            <td>T</td>
+                        </tr>
+                        <tr align="center">
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ء&#39;)" value="ء">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ي&#39;)" value="ي">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;و&#39;)" value="و">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ه&#39;)" value="ه">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ن&#39;)" value="ن">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;م&#39;)" value="م">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ل&#39;)" value="ل">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ك&#39;)" value="ك">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ق&#39;)" value="ق">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ف&#39;)" value="ف">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;غ&#39;)" value="غ">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ع&#39;)" value="ع">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ظ&#39;)" value="ظ">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ط&#39;)" value="ط">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <table>
+                    <tbody>
+                        <tr valign="top">
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ى&#39;)" value="ى">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ئ&#39;)" value="ئ">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ؤ&#39;)" value="ؤ">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ة&#39;)" value="ة">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="btb" onclick="alpha(&#39;إ&#39;)" value="إ">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="btb" onclick="alpha(&#39;أ&#39;)" value="أ">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="btb" onclick="alpha(&#39;آ&#39;)" value="آ">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="btb" onclick="alpha(&#39;َ&#39;)" value="َ ">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="btb" onclick="alpha(&#39;ً&#39;)" value="ً ">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="btb" onclick="alpha(&#39;ُ&#39;)" value="ُ ">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="btb" onclick="alpha(&#39;ٌ&#39;)" value="ٌ ">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="btb" onclick="alpha(&#39;ّ&#39;)" value="ّ ">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="btb" onclick="alpha(&#39;ْ&#39;)" value="ْ ">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="btb" onclick="alpha(&#39;ِ&#39;)" value="ِ ">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="btb" onclick="alpha(&#39;ٍ&#39;)" value="ٍ ">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <table>
+                    <tbody>
+                        <tr valign="top">
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;؟&#39;)" value="؟">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;؛&#39;)" value="؛">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;،&#39;)" value="،">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;ـ&#39;)" value="ـ">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <table>
+                    <tbody>
+                        <tr align="center">
+                            <td>0</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                        </tr>
+                        <tr align="center">
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;٠&#39;)" value="٠">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;١&#39;)" value="١">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;٢&#39;)" value="٢">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;٣&#39;)" value="٣">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;٤&#39;)" value="٤">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;٥&#39;)" value="٥">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;٦&#39;)" value="٦">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;٧&#39;)" value="٧">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;٨&#39;)" value="٨">
+                            </td>
+                            <td>
+                                <input name="button" type="button" class="bt1" onclick="alpha(&#39;٩&#39;)" value="٩">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+    <div id="footer"></div>
+</div>
+<script type="text/javascript" src="js/lib/tpl.js"></script>
+<script type="text/javascript" src="js/lib/app.min.js"></script>
+<script type="text/javascript" src="js/lib/tools.js"></script>
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101313065" charset="utf-8"></script>
+<script>
+function alpha(item) { 
+    var input = document.conversion.saisie;
+         if (document.selection) { 
+            input.focus();
+            range = document.selection.createRange() ;
+            range.text = item ;
+            range.select(); 
+        }
+        else if (input.selectionStart || input.selectionStart == '0') {
+        var startPos = input.selectionStart;
+        var endPos = input.selectionEnd;
+        var cursorPos = startPos;
+        var scrollTop = input.scrollTop;
+        var baselength = 0;
+        input.value = input.value.substring(0, startPos)
+            + item
+            + input.value.substring(endPos, input.value.length);
+        cursorPos += item.length;
+        input.focus();
+        input.selectionStart = cursorPos;
+        input.selectionEnd = cursorPos;
+        input.scrollTop = scrollTop;
+        }
+    else {
+        input.value += item;
+        input.focus();
+    }
+}
+
+function copy() { 
+textRange=document.conversion.saisie.createTextRange();   textRange.execCommand("Copy");   textRange="";
+}
+
+
+var ca;
+function transit() {
+ca = document.conversion.saisie.value;
+document.bp.typedText.value=ca;
+document.bp.submit(); 
+}
+</script>
+<script type="text/javascript">
+// 百度统计
+// var _hmt = _hmt || [];
+// (function () {
+//     var hm = document.createElement("script");
+//     hm.src = "//hm.baidu.com/hm.js?0b2e7e597c93ff3bbeffb23e425189d5";
+//     var s = document.getElementsByTagName("script")[0];
+//     s.parentNode.insertBefore(hm, s);
+// })();
+</script>
+<script type="text/javascript">
+     document.write('<a style="display:none!important" id="tanx-a-mm_98042776_7562526_25452011"></a>');
+     tanx_s = document.createElement("script");
+     tanx_s.type = "text/javascript";
+     tanx_s.charset = "gbk";
+     tanx_s.id = "tanx-s-mm_98042776_7562526_25452011";
+     tanx_s.async = true;
+     tanx_s.src = "http://p.tanx.com/ex?i=mm_98042776_7562526_25452011";
+     tanx_h = document.getElementsByTagName("head")[0];
+     if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+</script>
+</body>
+</html>

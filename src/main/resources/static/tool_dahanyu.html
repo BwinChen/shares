@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+<link rel="shortcut icon"  href="image/icon.ico" type="image/x-icon">
+<link rel="Bookmark" href="image/icon.ico">
+<link rel="icon" type="image/x-icon" href="image/icon.ico">
+<title>打韩语_韩语输入法-韩语在线输入-韩语键盘-韩语字符-韩语字母</title>
+<meta name="Description" content="打韩语 韩语在线输入" />
+<meta name="Keywords" content="韩语输入法 韩语在线输入 韩语字母 韩语键盘 韩语四十音" />
+<link rel="stylesheet" type="text/css" href="css/app.min.css" />
+<style type="text/css">
+#selection a {
+    margin-right: 10px;
+    color: #009999;
+}
+#selection a.st {
+    color: #ff0000;
+}
+table {
+    font: 12px/1.5 tahoma, arial, 宋体, sans-serif;
+}
+td {
+    font-size: 9px;
+}
+.style1 {color: #FF0033}
+.bt1 { width: 34px; height:34px; font-size:18px; color:#CC0033; font-family:'Arial Unicode MS'; border: 1px solid #e1e1e1; }
+.bf {cursor:pointer; font-size: 12px; color:#666666; border: 1px solid #e1e1e1; padding: 1px 8px;}
+.cadr { width:80%; color:blue; font-family:Verdana; font-size:12pt; padding:5px; border: 1px solid #e1e1e1; scrollbar-base-color:transparent; scrollbar-track-color:transparent; }
+</style>
+</head>
+<body>
+<div class="app" id="app-font">
+    <div id="header"></div>
+    <div id="content" style="width: 1000px; margin: 0 auto; overflow: hidden;">
+        <div id="selection" style=" margin: 10px auto; text-align: center;">
+            <a href="./tool_dahanyu.html" class="st">打韩语</a>
+            <a href="./tool_dariyu.html">打日语</a>
+            <a href="./tool_dawaiyu.html">打阿拉伯语</a>
+        </div>
+
+        <form name="conversion" class="mt10" style="margin-bottom: 50px;">
+          <div align="center">
+            <textarea name="saisie" rows="8" onkeyup="transcrire()" class="cadr"></textarea>
+            <br>
+            <br>
+            <input type="button" onclick="conversion.saisie.select();copy()" value="复制" class="bf">
+            &nbsp;&nbsp; &nbsp; 
+            <input type="button" onclick="conversion.saisie.rows=8;conversion.saisie.focus()" value="小屏" class="bf">
+            &nbsp; &nbsp; 
+            <input type="button" onclick="conversion.saisie.rows=30;conversion.saisie.focus()" value="大屏" class="bf">
+            <br>
+            <br>
+            <table>
+              <tbody><tr align="center"> 
+                <td>g/k</td>
+                <td>kk</td>
+                <td>n</td>
+                <td>d/t</td>
+                <td>tt</td>
+                <td>r</td>
+                <td>m</td>
+                <td>b/p</td>
+                <td>pp</td>
+                <td>s</td>
+                <td>ss</td>
+                <td>ng</td>
+                <td>j</td>
+                <td>jj</td>
+                <td>ch</td>
+                <td>K</td>
+                <td>T</td>
+                <td>P</td>
+                <td>h</td>
+              </tr>
+              <tr><td><input name="button" type="button" class="bt1" title="giyeok" onclick="alpha(&#39;ᄀ&#39;);transcrire()" value="ᄀ"></td>
+              <td><input name="button" type="button" class="bt1" title="ssang-giyeok" onclick="alpha(&#39;ᄁ&#39;);transcrire()" value="ᄁ"></td>
+              <td><input name="button" type="button" class="bt1" title="nieun" onclick="alpha(&#39;ᄂ&#39;);transcrire()" value="ᄂ"></td>
+              <td><input name="button" type="button" class="bt1" title="digeut" onclick="alpha(&#39;ᄃ&#39;);transcrire()" value="ᄃ"></td>
+              <td><input name="button" type="button" class="bt1" title="ssasng-digeut" onclick="alpha(&#39;ᄄ&#39;);transcrire()" value="ᄄ"></td>
+              <td><input name="button" type="button" class="bt1" title="rieul" onclick="alpha(&#39;ᄅ&#39;);transcrire()" value="ᄅ"></td>
+              <td><input name="button" type="button" class="bt1" title="mieum" onclick="alpha(&#39;ᄆ&#39;);transcrire()" value="ᄆ"></td>
+              <td><input name="button" type="button" class="bt1" title="bieup" onclick="alpha(&#39;ᄇ&#39;);transcrire()" value="ᄇ"></td>
+              <td><input name="button" type="button" class="bt1" title="ssang-bieup" onclick="alpha(&#39;ᄈ&#39;);transcrire()" value="ᄈ"></td>
+              <td><input name="button" type="button" class="bt1" title="siot" onclick="alpha(&#39;ᄉ&#39;);transcrire()" value="ᄉ"></td>
+              <td><input name="button" type="button" class="bt1" title="ssang-siot" onclick="alpha(&#39;ᄊ&#39;);transcrire()" value="ᄊ"></td>
+              <td><input name="button" type="button" class="bt1" title="ieung" onclick="alpha(&#39;ᄋ&#39;);transcrire()" value="ᄋ"></td>
+              <td><input name="button" type="button" class="bt1" title="jieut" onclick="alpha(&#39;ᄌ&#39;);transcrire()" value="ᄌ"></td>
+              <td><input name="button" type="button" class="bt1" title="ssang-jieut" onclick="alpha(&#39;ᄍ&#39;);transcrire()" value="ᄍ"></td>
+              <td><input name="button" type="button" class="bt1" title="chieut" onclick="alpha(&#39;ᄎ&#39;);transcrire()" value="ᄎ"></td>
+              <td><input name="button" type="button" class="bt1" title="kieuk" onclick="alpha(&#39;ᄏ&#39;);transcrire()" value="ᄏ"></td>
+              <td><input name="button" type="button" class="bt1" title="tieut" onclick="alpha(&#39;ᄐ&#39;);transcrire()" value="ᄐ"></td>
+              <td><input name="button" type="button" class="bt1" title="pieup" onclick="alpha(&#39;ᄑ&#39;);transcrire()" value="ᄑ"></td>
+              <td><input name="button" type="button" class="bt1" title="hieut" onclick="alpha(&#39;ᄒ&#39;);transcrire()" value="ᄒ"></td>
+              </tr>
+            </tbody></table>
+            <br>
+            <table>
+              <tbody><tr align="center"> 
+                <td>a</td>
+                <td>ak</td>
+                <td>an</td>
+                <td>al</td>
+                <td>am</td>
+                <td>ap</td>
+                <td>ang</td>
+                <td>aP</td>
+                <td>ae</td>
+                <td>aek</td>
+                <td>aeng</td>
+                <td>ya</td>
+                <td>yan</td>
+                <td>yak</td>
+                <td>yang</td>
+              </tr>
+              <tr align="center"> 
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;아&#39;);transcrire()" value="아"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;악&#39;);transcrire()" value="악"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;안&#39;);transcrire()" value="안"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;알&#39;);transcrire()" value="알"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;암&#39;);transcrire()" value="암"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;압&#39;);transcrire()" value="압"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;앙&#39;);transcrire()" value="앙"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;앞&#39;);transcrire()" value="앞"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;애&#39;);transcrire()" value="애"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;액&#39;);transcrire()" value="액"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;앵&#39;);transcrire()" value="앵"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;야&#39;);transcrire()" value="야"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;얀&#39;);transcrire()" value="얀"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;약&#39;);transcrire()" value="약"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;양&#39;);transcrire()" value="양"></td>
+              </tr>
+            </tbody></table>
+            <br>
+            <table>
+              <tbody><tr align="center"> 
+                <td>eo</td>
+                <td>eok</td>
+                <td>eon</td>
+                <td>eol</td>
+                <td>eom</td>
+                <td>eop</td>
+                <td>e</td>
+                <td>yeo</td>
+                <td>yeok</td>
+                <td>yeon</td>
+                <td>yeol</td>
+                <td>yeom</td>
+                <td>yeop</td>
+                <td>yeong</td>
+                <td>ye</td>
+              </tr>
+              <tr align="center"> 
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;어&#39;);transcrire()" value="어"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;억&#39;);transcrire()" value="억"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;언&#39;);transcrire()" value="언"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;얼&#39;);transcrire()" value="얼"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;엄&#39;);transcrire()" value="엄"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;업&#39;);transcrire()" value="업"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;에&#39;);transcrire()" value="에"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;여&#39;);transcrire()" value="여"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;역&#39;);transcrire()" value="역"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;연&#39;);transcrire()" value="연"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;열&#39;);transcrire()" value="열"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;염&#39;);transcrire()" value="염"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;엽&#39;);transcrire()" value="엽"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;영&#39;);transcrire()" value="영"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;예&#39;);transcrire()" value="예"></td>
+              </tr>
+            </tbody></table>
+            <br>
+            <table>
+              <tbody><tr align="center"> 
+                <td>o</td>
+                <td>ok</td>
+                <td>on</td>
+                <td>ol</td>
+                <td>om</td>
+                <td>ong</td>
+                <td>wa</td>
+                <td>wan</td>
+                <td>wal</td>
+                <td>wang</td>
+                <td>wae</td>
+                <td>oe</td>
+                <td>oen</td>
+                <td>yo</td>
+                <td>yok</td>
+                <td>yong</td>
+              </tr>
+              <tr align="center"> 
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;오&#39;);transcrire()" value="오"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;옥&#39;);transcrire()" value="옥"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;온&#39;);transcrire()" value="온"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;올&#39;);transcrire()" value="올"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;옴&#39;);transcrire()" value="옴"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;옹&#39;);transcrire()" value="옹"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;와&#39;);transcrire()" value="와"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;완&#39;);transcrire()" value="완"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;왈&#39;);transcrire()" value="왈"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;왕&#39;);transcrire()" value="왕"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;왜&#39;);transcrire()" value="왜"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;외&#39;);transcrire()" value="외"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;왼&#39;);transcrire()" value="왼"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;요&#39;);transcrire()" value="요"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;욕&#39;);transcrire()" value="욕"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;용&#39;);transcrire()" value="용"></td>
+              </tr>
+            </tbody></table>
+            <br>
+            <table>
+              <tbody><tr align="center"> 
+                <td>u</td>
+                <td>uk</td>
+                <td>un</td>
+                <td>ul</td>
+                <td>um</td>
+                <td>ung</td>
+                <td>wo</td>
+                <td>won</td>
+                <td>wol</td>
+                <td>wi</td>
+                <td>yu</td>
+                <td>yuk</td>
+                <td>yun</td>
+                <td>yul</td>
+                <td>yung</td>
+                <td>yut</td>
+              </tr>
+              <tr align="center"> 
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;우&#39;);transcrire()" value="우"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;욱&#39;);transcrire()" value="욱"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;운&#39;);transcrire()" value="운"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;울&#39;);transcrire()" value="울"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;움&#39;);transcrire()" value="움"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;웅&#39;);transcrire()" value="웅"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;워&#39;);transcrire()" value="워"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;원&#39;);transcrire()" value="원"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;월&#39;);transcrire()" value="월"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;위&#39;);transcrire()" value="위"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;유&#39;);transcrire()" value="유"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;육&#39;);transcrire()" value="육"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;윤&#39;);transcrire()" value="윤"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;율&#39;);transcrire()" value="율"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;융&#39;);transcrire()" value="융"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;윷&#39;);transcrire()" value="윷"></td>
+              </tr>
+            </tbody></table>
+            <br>
+            <table>
+              <tbody><tr align="center"> 
+                <td>eu</td>
+                <td>eun</td>
+                <td>eul</td>
+                <td>eum</td>
+                <td>eup</td>
+                <td>eung</td>
+                <td>ui</td>
+                <td>i</td>
+                <td>ik</td>
+                <td>in</td>
+                <td>il</td>
+                <td>im</td>
+                <td>ip</td>
+                <td>ing</td>
+                <td>iP</td>
+              </tr>
+              <tr align="center"> 
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;으&#39;);transcrire()" value="으"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;은&#39;);transcrire()" value="은"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;을&#39;);transcrire()" value="을"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;음&#39;);transcrire()" value="음"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;읍&#39;);transcrire()" value="읍"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;응&#39;);transcrire()" value="응"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;의&#39;);transcrire()" value="의"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;이&#39;);transcrire()" value="이"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;익&#39;);transcrire()" value="익"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;인&#39;);transcrire()" value="인"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;일&#39;);transcrire()" value="일"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;임&#39;);transcrire()" value="임"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;입&#39;);transcrire()" value="입"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;잉&#39;);transcrire()" value="잉"></td>
+                <td><input name="button" type="button" class="bt1" onclick="alpha(&#39;잎&#39;);transcrire()" value="잎"></td>
+              </tr>
+            </tbody></table>
+          </div>
+        </form>
+    </div>
+    <div id="footer"></div>
+</div>
+<script type="text/javascript" src="js/lib/tpl.js"></script>
+<script type="text/javascript" src="js/lib/app.min.js"></script>
+<script type="text/javascript" src="js/lib/tools.js"></script>
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101313065" charset="utf-8"></script>
+<script>
+function alpha(item) { 
+    var input = document.conversion.saisie;
+         if (document.selection) { 
+            input.focus();
+            range = document.selection.createRange() ;
+            range.text = item ;
+            range.select(); 
+        }
+        else if (input.selectionStart || input.selectionStart == '0') {
+        var startPos = input.selectionStart;
+        var endPos = input.selectionEnd;
+        var cursorPos = startPos;
+        var scrollTop = input.scrollTop;
+        var baselength = 0;
+        input.value = input.value.substring(0, startPos)
+            + item
+            + input.value.substring(endPos, input.value.length);
+        cursorPos += item.length;
+        input.focus();
+        input.selectionStart = cursorPos;
+        input.selectionEnd = cursorPos;
+        input.scrollTop = scrollTop;
+        }
+    else {
+        input.value += item;
+        input.focus();
+    }
+}
+
+function copy() { 
+textRange=document.conversion.saisie.createTextRange();   textRange.execCommand("Copy");   textRange="";
+}
+
+
+var ca;
+function transit() {
+ca = document.conversion.saisie.value;
+document.bp.typedText.value=ca;
+document.bp.submit(); 
+}
+</script>
+<script type="text/javascript">
+// 百度统计
+// var _hmt = _hmt || [];
+// (function () {
+//     var hm = document.createElement("script");
+//     hm.src = "//hm.baidu.com/hm.js?0b2e7e597c93ff3bbeffb23e425189d5";
+//     var s = document.getElementsByTagName("script")[0];
+//     s.parentNode.insertBefore(hm, s);
+// })();
+</script>
+<script type="text/javascript">
+     document.write('<a style="display:none!important" id="tanx-a-mm_98042776_7562526_25452011"></a>');
+     tanx_s = document.createElement("script");
+     tanx_s.type = "text/javascript";
+     tanx_s.charset = "gbk";
+     tanx_s.id = "tanx-s-mm_98042776_7562526_25452011";
+     tanx_s.async = true;
+     tanx_s.src = "http://p.tanx.com/ex?i=mm_98042776_7562526_25452011";
+     tanx_h = document.getElementsByTagName("head")[0];
+     if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+</script>
+</body>
+</html>
